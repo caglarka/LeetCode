@@ -9,6 +9,9 @@
             int param = -121;
 
             bool result = solver.IsPalindrome(param);
+
+
+            Console.WriteLine(1);
         }
     }
 }
