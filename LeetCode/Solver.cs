@@ -85,5 +85,71 @@
         }
 
         #endregion
+
+        #region Roman To Int
+
+        // Tric: bir semboldan sonra gelen sembol eğer kendinden küçükse onu değer, kadar küçültür.
+        // Ör IV -> 5-1 = 4 /  IX -> 10-1 = 9
+        public int RomanToInt(string s)
+        {
+            Dictionary<char, int> romanMap = new Dictionary<char, int>
+            {
+                {'I', 1},
+                {'V', 5},
+                {'X', 10},
+                {'L', 50},
+                {'C', 100},
+                {'D', 500},
+                {'M', 1000}
+            };
+
+            int sum = 0;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (i + 1 < s.Length && romanMap[s[i]] < romanMap[s[i + 1]])
+                {
+                    sum -= romanMap[s[i]];
+                }
+                else
+                {
+                    sum += romanMap[s[i]];
+                }
+            }
+            return sum;
+        }
+
+        #endregion
+
+        #region Longest Common Prefix
+        public string LongestCommonPrefix(string[] strs)
+        {            
+            string prefix = strs[0];
+
+            for (int i = 0; i < strs.Length; i++)
+            {
+                string currentPrefix = string.Empty;
+
+                for (int j = 0; j < strs[i].Length; j++)
+                {
+                    if (j >= prefix.Length) break;
+
+                    if (strs[i][j] == prefix[j])
+                    {
+                        currentPrefix += strs[i][j];
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                prefix = currentPrefix;
+            }
+
+            return prefix;
+        }
+
+        #endregion
     }
 }

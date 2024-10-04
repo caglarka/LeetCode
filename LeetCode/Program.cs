@@ -6,12 +6,9 @@
         {
             Solver solver = new Solver();
 
-            int param = -121;
+            string[] st = ["flower", "flow", "flight"];
 
-            bool result = solver.IsPalindrome(param);
-
-
-            Console.WriteLine(1);
+            var result = solver.LongestCommonPrefix(st);
         }
     }
 }
