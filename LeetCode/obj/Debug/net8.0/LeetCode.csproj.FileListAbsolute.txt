@@ -1,0 +1,14 @@
+D:\caglar\.net_upgrade\LeetCode\LeetCode\bin\Debug\net8.0\LeetCode.exe
+D:\caglar\.net_upgrade\LeetCode\LeetCode\bin\Debug\net8.0\LeetCode.deps.json
+D:\caglar\.net_upgrade\LeetCode\LeetCode\bin\Debug\net8.0\LeetCode.runtimeconfig.json
+D:\caglar\.net_upgrade\LeetCode\LeetCode\bin\Debug\net8.0\LeetCode.dll
+D:\caglar\.net_upgrade\LeetCode\LeetCode\bin\Debug\net8.0\LeetCode.pdb
+D:\caglar\.net_upgrade\LeetCode\LeetCode\obj\Debug\net8.0\LeetCode.GeneratedMSBuildEditorConfig.editorconfig
+D:\caglar\.net_upgrade\LeetCode\LeetCode\obj\Debug\net8.0\LeetCode.AssemblyInfoInputs.cache
+D:\caglar\.net_upgrade\LeetCode\LeetCode\obj\Debug\net8.0\LeetCode.AssemblyInfo.cs
+D:\caglar\.net_upgrade\LeetCode\LeetCode\obj\Debug\net8.0\LeetCode.csproj.CoreCompileInputs.cache
+D:\caglar\.net_upgrade\LeetCode\LeetCode\obj\Debug\net8.0\LeetCode.dll
+D:\caglar\.net_upgrade\LeetCode\LeetCode\obj\Debug\net8.0\refint\LeetCode.dll
+D:\caglar\.net_upgrade\LeetCode\LeetCode\obj\Debug\net8.0\LeetCode.pdb
+D:\caglar\.net_upgrade\LeetCode\LeetCode\obj\Debug\net8.0\LeetCode.genruntimeconfig.cache
+D:\caglar\.net_upgrade\LeetCode\LeetCode\obj\Debug\net8.0\ref\LeetCode.dll
