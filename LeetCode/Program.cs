@@ -6,7 +6,9 @@
         {
             Solver solver = new Solver();
 
+            int param = -121;
 
+            bool result = solver.IsPalindrome(param);
         }
     }
 }

@@ -44,10 +44,46 @@
                 numDict[nums[i]] = i;
             }
 
-            return new int[0] ;
+            return new int[0];
         }
 
         #endregion
 
+        #region Palindrome Number
+
+        public bool IsPalindrome(int x)
+        {
+            string numberSt = x.ToString();
+            char[] stringArr = numberSt.ToCharArray();
+            Array.Reverse(stringArr);
+
+            string reversedString = new(stringArr);
+
+            bool isSuccess = int.TryParse(reversedString, out int result);
+
+            if (isSuccess)
+                return x == result;
+            else
+                return false;
+        }
+
+        public bool IsPalindromeOptimized(int x)
+        {
+            if (x < 0) return false;
+
+            int orjinal = x;
+            int reversed = 0;
+
+            while (x > 0)
+            {
+                int lastDijit = x % 10;
+                reversed = reversed * 10 + lastDijit;
+                x /= 10;
+            }
+
+            return orjinal == reversed;
+        }
+
+        #endregion
     }
 }
