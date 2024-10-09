@@ -226,5 +226,64 @@ namespace LeetCode
 
         #endregion
 
+        #region Remove Duplicates from Sorted Array
+        // int[] nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+
+        public int RemoveDuplicates(int[] nums)
+        {
+            if (nums.Length == 0) return 0;
+
+            int y = 0;
+            for (int i = 1; i < nums.Length; i++)
+            {
+                if (nums[i] != nums[y])
+                {
+                    y++;
+                    nums[y] = nums[i];
+                }
+            }
+
+            return y + 1;
+        }
+        #endregion
+
+        #region Remove Element
+
+        //int val = 2;
+        //int[] nums = [0, 1, 2, 2, 3, 0, 4, 2];
+
+        public int RemoveElement(int[] nums, int val)
+        {
+            int y = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] != val)
+                {
+                    nums[y] = nums[i];
+                }
+            }
+
+            return y;
+        }
+
+        #endregion
+
+        #region Search Insert Position
+
+        //int target = 2;
+        //int[] nums = [1, 3, 5, 6];
+
+        // varsa bulunduğu index'i yoksa olması gereken sıralı index'i
+        public int SearchInsert(int[] nums, int target)
+        {          
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (target <= nums[i])
+                    return i;
+            }
+
+            return nums.Length;
+        }
+        #endregion
     }
 }

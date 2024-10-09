@@ -6,12 +6,9 @@ namespace LeetCode
     {
         static void Main()
         {
-            Solver solver = new();
+            Solver s = new();
 
-            Example example = new();
-
-            example.ListNodeExample();
-
+            
         }
     }
 }
