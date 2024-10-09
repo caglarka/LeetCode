@@ -275,7 +275,7 @@ namespace LeetCode
 
         // varsa bulunduğu index'i yoksa olması gereken sıralı index'i
         public int SearchInsert(int[] nums, int target)
-        {          
+        {
             for (int i = 0; i < nums.Length; i++)
             {
                 if (target <= nums[i])
@@ -283,6 +283,38 @@ namespace LeetCode
             }
 
             return nums.Length;
+        }
+        #endregion
+
+        #region Find the Index of the First Occurrence in a String
+        public int StrStr(string haystack, string needle)
+        {
+            if (haystack.Length < needle.Length) return -1;
+
+            int y = 0;
+            int startIndex = -1;
+
+            for (int i = 0; i < haystack.Length; i++)
+            {
+                if (haystack[i] == needle[y])
+                {
+                    if (y == 0)
+                        startIndex = i;
+
+                    if (y + 1 == needle.Length)
+                        return startIndex;
+
+                    y++;
+                }
+                else if (startIndex != -1)
+                {
+                    i = startIndex;
+                    y = 0;
+                    startIndex = -1;
+                }
+            }
+
+            return -1;
         }
         #endregion
     }
