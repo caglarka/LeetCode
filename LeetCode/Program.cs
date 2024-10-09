@@ -1,14 +1,17 @@
-﻿namespace LeetCode
+﻿using LeetCode.Models;
+
+namespace LeetCode
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Solver solver = new Solver();
+            Solver solver = new();
 
-            string[] st = ["flower", "flow", "flight"];
+            Example example = new();
 
-            var result = solver.LongestCommonPrefix(st);
+            example.ListNodeExample();
+
         }
     }
 }

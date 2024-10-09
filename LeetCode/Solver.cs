@@ -1,4 +1,6 @@
-﻿namespace LeetCode
+﻿using LeetCode.Models;
+
+namespace LeetCode
 {
     public class Solver
     {
@@ -123,7 +125,7 @@
 
         #region Longest Common Prefix
         public string LongestCommonPrefix(string[] strs)
-        {            
+        {
             string prefix = strs[0];
 
             for (int i = 0; i < strs.Length; i++)
@@ -151,5 +153,78 @@
         }
 
         #endregion
+
+        #region Valid Parentheses
+
+        /*         
+            string param = "([)]";
+            string param = "(){}}{";
+            string param = "([])";
+         */
+        public bool IsValid(string s)
+        {
+            Dictionary<char, char> parentMap = new Dictionary<char, char>()
+            {
+                {'(',')' },
+                {'{','}' },
+                {'[',']' }
+            };
+
+            Stack<char> stack = new Stack<char>(); // stackte her zaman açılış parantezleri olacak
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                char current = s[i];
+
+                if (parentMap.ContainsKey(current)) // ilgili char açılış parantezi mi ?
+                {
+                    stack.Push(current);
+                }
+                else if (parentMap.ContainsValue(current)) // ilgili char kapanış parantezi mi ?
+                {
+                    // stack'e eklenen son açılış parantezinin mapteki valuesu, cureent olmak zorunda çünkü sıralı işlem bekleniyor !
+                    if (stack.Count == 0 || parentMap[stack.Peek()] != current)
+                        return false;
+
+                    stack.Pop();
+                }
+            }
+
+            return stack.Count == 0;
+        }
+
+        #endregion
+
+        #region Merge Two Sorted Lists
+
+        public ListNode? MergeTwoLists(ListNode l1, ListNode l2)
+        {
+            ListNode dummy = new ListNode(-1);
+            ListNode current = dummy;
+
+
+            while (l1 is not null && l2 is not null)
+            {
+                if (l1.val <= l2.val)
+                {
+                    current.next = l1;
+                    l1 = l1.next!;
+                }
+                else
+                {
+                    current.next = l2;
+                    l2 = l2.next!;
+                }
+                current = current.next;
+            }
+
+            current.next = l1 ?? l2;
+
+            // dummy'nin next'i ilgili listenin hedaer'ı.
+            return dummy.next;
+        }
+
+        #endregion
+
     }
 }
