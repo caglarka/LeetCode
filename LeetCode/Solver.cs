@@ -287,6 +287,13 @@ namespace LeetCode
         #endregion
 
         #region Find the Index of the First Occurrence in a String
+
+        //string haystack = "mississippi";
+        //string needle = "pi";
+
+        //string haystack = "leetcode";
+        //string needle = "leeto";
+
         public int StrStr(string haystack, string needle)
         {
             if (haystack.Length < needle.Length) return -1;
@@ -316,6 +323,38 @@ namespace LeetCode
 
             return -1;
         }
+        #endregion
+
+        #region Length of Last Word
+
+        //string p = "Hello World";
+        //string p1 = "   fly me   to   the moon  ";
+
+        public int LengthOfLastWord(string s)
+        {
+            int c = 0;
+            int y = 1; // doludan boşa dönerken değer değişiyor.
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] != ' ' && y == 1)
+                {
+                    c++;
+                }
+                else if (s[i] == ' ' && y == 1)
+                {
+                    y = 0;
+                }
+                else if (s[i] != ' ' && y == 0)
+                {
+                    c = 1;
+                    y = 1;
+                }
+            }
+
+            return c;
+        }
+
         #endregion
     }
 }
