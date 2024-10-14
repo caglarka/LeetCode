@@ -1,4 +1,5 @@
 ﻿using LeetCode.Models;
+using System.Numerics;
 
 namespace LeetCode
 {
@@ -355,6 +356,155 @@ namespace LeetCode
             return c;
         }
 
+        #endregion
+
+        #region Plus One
+
+        //int[] d = [6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3];
+        int[] d = [1, 2, 9];
+
+        public int[] PlusOneV1(int[] digits)
+        {
+            int[] res;
+
+            if (digits[^1] == 9)
+                res = new int[digits.Length + 1];
+            else
+                res = new int[digits.Length];
+
+            int v = 0;
+            for (int i = digits.Length - 1; i >= 0; i--)
+            {
+                if (i == digits.Length - 1)
+                {
+                    int sum = digits[i] + 1;
+
+                    if (sum == 10)
+                    {
+                        res[i] = 0;
+                        v = 1;
+                    }
+                    else
+                        res[i] = sum;
+                }
+                else if (digits[i] + v == 10)
+                {
+                    res[i] = 0;
+                    v = 1;
+                }
+                else
+                    res[i] = digits[i];
+            }
+
+            if (res.Length == 2 && v == 1)
+                res[0] = v;
+
+            return res;
+        }
+
+
+        public int[] PlusOne(int[] d)
+        {
+
+            for (int i = d.Length - 1; i >= 0; i--)
+            {
+                if (d[i] != 9) // son basamak 9 değil ise, 1 ekle ve diziyi dön.
+                {
+                    d[i]++;
+                    return d;
+                }
+                // Eğer basamak 9 ise , i. basamağı 0 yap
+                d[i] = 0;
+            }
+
+            int[] res = new int[d.Length + 1];
+            res[0] = 1;  // İlk elemanı 1 yap, geri kalanlar zaten 0
+            return res;
+        }
+        #endregion
+
+        #region Add Binary
+        public string AddBinary(string a, string b)
+        {
+            int al = a.Length;
+            int bl = b.Length;
+
+            int carry = 0;
+            string res = "";
+
+            while (al >= 0 || bl >= 0 || carry > 0)
+            {
+                int aV = al >= 0 ? a[al] - '0' : 0;
+                int bV = bl >= 0 ? b[bl] - '0' : 0;
+
+                int sum = aV + bV + carry;
+                carry = sum / 2;
+                res = (sum % 2).ToString() + res;
+
+                al--;
+                bl--;
+            }
+
+            return res;
+        }
+
+        #endregion
+
+        #region Sqrt(x)
+        public int MySqrt(int x)
+        {
+            if (x == 0 || x == 1)
+                return x;
+
+            int left = 1;
+            int right = x;
+            int result = 0;
+
+            while (left <= right)
+            {
+                int mid = left + (right - left) / 2; // orta değerini bul. 1 ile x'in oratı middir. binary search orta bulma yontemi
+                // left + (right - left) / 2 formülünü kullanıyoruz. Bunun sebebi, büyük sayılarla çalışırken taşma (overflow) riskini azaltmaktır.
+
+                long square = (long)mid * mid; // orta değerinin karesini al
+
+                if (square == x) // square == parametreye ? ok ise dön
+                {
+                    return mid;
+                }
+                else if (square < x) // parametrenin yarısının karesi kendisinden kücükse, yarı değerine 1 ekle
+                {
+                    left = mid + 1;
+                    result = mid;
+                }
+                else
+                {
+                    right = mid - 1;
+                }
+            }
+            return result;
+        }
+        #endregion
+
+        #region Climbing Stairs        
+
+        public int ClimbStairs(int n)
+        {
+            if (n == 1) return 1;
+            if (n == 2) return 2;
+
+            int a = 1;
+            int b = 2;
+
+            for (int i = 3; i <= n; i++)
+            {
+                int c = a + b;
+
+                a = b;
+                b = c;
+            }
+
+            return b;
+        }
         #endregion
     }
 }

@@ -7,7 +7,7 @@ namespace LeetCode
         static void Main()
         {
             Solver s = new();
-
+            
         }
     }
 }
