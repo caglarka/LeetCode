@@ -1,5 +1,1 @@
-LeetCode Problems Solve Solution
-Algorithm 
-Hash Table 
-Dictionary
-For C#
+# **LeetCode Problems Solve Solution**
