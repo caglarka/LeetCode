@@ -356,5 +356,37 @@ namespace LeetCode
         }
 
         #endregion
+
+        #region Add Binary
+
+        // 11
+        //  1
+        //100
+        public string AddBinary(string a, string b)
+        {
+            int i = a.Length - 1;
+            int j = b.Length - 1;
+            int carry = 0;
+
+            string res = "";
+
+            // '1' -> 49 '0'-> 48
+            while (i >= 0 || j >= 0 || carry > 0)
+            {
+                // a[i] - '0' => a[i] -> '1'(49) ise  ondan '0'(48) çıkarırsak
+                // int değerini elder ederiz.
+                int vA = i >= 0 ? a[i] - '0' : 0;
+                int vB = j >= 0 ? b[j] - '0' : 0;
+
+                int sum = vA + vB + carry;
+                carry = sum / 2;
+                res = (sum % 2).ToString() + res;
+
+                j--;
+                i--;
+            }
+            return res;
+        }
+        #endregion
     }
 }

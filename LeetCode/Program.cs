@@ -8,6 +8,9 @@ namespace LeetCode
         {
             Solver s = new();
 
+            string a = "11", b = "1";
+            var res = s.AddBinary(a, b);
+
         }
     }
 }
