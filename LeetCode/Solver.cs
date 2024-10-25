@@ -1,5 +1,4 @@
 ﻿using LeetCode.Models;
-using System.Numerics;
 
 namespace LeetCode
 {
@@ -504,6 +503,34 @@ namespace LeetCode
             }
 
             return b;
+        }
+        #endregion
+
+        #region Remove Duplicates from Sorted List
+        public ListNode DeleteDuplicates(ListNode head)
+        {
+            if (head == null)
+                return null;
+
+            Dictionary<int, bool> dic = new();
+
+            ListNode beforeNode = null;
+            ListNode currentNode = head;
+
+            while (currentNode != null)
+            {
+                if (dic.ContainsKey(currentNode.val))
+                    beforeNode.next = currentNode.next;
+                else
+                {
+                    dic.Add(currentNode.val,true);
+                    beforeNode = currentNode;
+                }
+
+                currentNode = currentNode.next;
+            }
+
+            return head;
         }
         #endregion
     }

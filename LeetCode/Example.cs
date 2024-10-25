@@ -8,22 +8,22 @@ namespace LeetCode
 
         public void ListNodeExample()
         {
-            ListNode nodeA1 = new ListNode(1); // header
+            ListNode head = new ListNode(1); // header
             ListNode nodeA2 = new ListNode(2);
-            nodeA1.next = nodeA2;
+            ListNode nodeA3 = new ListNode(3);
+            ListNode nodeA4 = new ListNode(4);
+            ListNode nodeA5 = new ListNode(5);
 
-            ListNode nodeA3 = new ListNode(4);
+            head.next = nodeA2;
             nodeA2.next = nodeA3;
+            nodeA3.next = nodeA4;
+            nodeA4.next = nodeA5;
 
-            ListNode nodeB1 = new ListNode(1); // header
-            ListNode nodeB2 = new ListNode(3);
-            nodeB1.next = nodeB2;
+            ShowListNode(head, "input-1");
 
-            ListNode nodeB3 = new ListNode(4);
-            nodeB2.next = nodeB3;
+            DeleteNodeWithIndex(head, 3);
 
-            ShowListNode(nodeA1, "input-1");
-            ShowListNode(nodeB1, "input-2");
+            ShowListNode(head, "d-input-1");
         }
 
         private void ShowListNode(ListNode? node, string header = "header")
@@ -37,6 +37,33 @@ namespace LeetCode
             Console.WriteLine("NULL");
         }
 
+        private void DeleteNodeWithIndex(ListNode head, int index)
+        {
+            if (head is null)
+                return;
+
+            if (index == 0)
+            {
+                head = head.next;
+            }
+
+            ListNode? current = head;
+            // verilen index'in bir öncesine kadar listde gidilir.
+            for (int i = 0; i < index - 1; i++)
+            {
+                if (current?.next == null)
+                {
+                    return;
+                }
+
+                current = current.next;// sonraki node
+            }
+
+            if (current?.next != null)
+            {
+                current.next = current.next.next;
+            }
+        }
         #endregion
 
 
